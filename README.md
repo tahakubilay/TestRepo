@@ -1,4 +1,1 @@
-# TestRepo
-Test Amaçlıdır
-
-biraz değişiklik amaçlı test
+Kullancı Giriş Ekranı - Test Amaçlıdır

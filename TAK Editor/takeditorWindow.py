@@ -1,8 +1,12 @@
+##Taha Kubilay##
+
 from Ui_takeditor import Ui_takeditor
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QFileDialog, QMessageBox
+from PyQt5.QtWidgets import QFileDialog, QMessageBox, QFontDialog, QColorDialog
 from PyQt5.QtPrintSupport import QPrinter,QPrintDialog,QPrintPreviewDialog
-from PyQt5.QtCore import QFileInfo
+from PyQt5.QtCore import QFileInfo, Qt, QTime, QDate
+from PyQt5.QtGui import QFont
+
 
 class EditorWindow(QtWidgets.QMainWindow, Ui_takeditor):
     def __init__(self):
@@ -15,7 +19,23 @@ class EditorWindow(QtWidgets.QMainWindow, Ui_takeditor):
         self.actionPrint_PDF.triggered.connect(self.filePreview)
         self.actionPrint_Export.triggered.connect(self.fileExportPDF)
         self.actionExit.triggered.connect(self.exitApp)
-        
+        self.actionCopy.triggered.connect(self.editCopy)
+        self.actionPaste.triggered.connect(self.editPaste)
+        self.actionCut.triggered.connect(self.editCut)
+        self.actionUndo.triggered.connect(self.textBrowser.undo)
+        self.actionRedo.triggered.connect(self.textBrowser.redo)
+        self.actionFont.triggered.connect(self.fontDialog)
+        self.actionColor.triggered.connect(self.colorDialog)
+        self.actionBold.triggered.connect(self.textBold)
+        self.actionItalic.triggered.connect(self.textItalic)
+        self.actionUnderline.triggered.connect(self.textUnderline)
+        self.actionLeft_Align.triggered.connect(self.alignLeft)
+        self.actionCenter_Align.triggered.connect(self.alignCenter)
+        self.actionRight_Align.triggered.connect(self.alignRight)
+        self.actionJustify.triggered.connect(self.alignJustify)
+        self.actionTime.triggered.connect(self.ShowTime)
+        self.actionDate.triggered.connect(self.ShowDate)
+
         self.show()
 
     
@@ -70,3 +90,62 @@ class EditorWindow(QtWidgets.QMainWindow, Ui_takeditor):
     
     def exitApp(self):
         self.close()
+
+    def editCopy(self):
+        cursor = self.textBrowser.textCursor()
+        textSelected = cursor.selectedText()
+        self.copiedText = textSelected
+
+    def editPaste(self):
+        self.textBrowser.append(self.copiedText)
+
+    def editCut(self):
+        cursor = self.textBrowser.textCursor()
+        textSelected = cursor.selectedText()
+        self.copiedText = textSelected
+        self.textBrowser.cut()
+
+    def fontDialog(self):
+        font, ok = QFontDialog.getFont()
+
+        if ok:
+            self.textBrowser.setFont(font)
+
+    def colorDialog(self):
+        color =QColorDialog.getColor()
+        self.textBrowser.setTextColor(color)
+
+    def textBold(self):
+        font = QFont()
+        font.setBold(True)
+        self.textBrowser.setFont(font)
+
+    def textItalic(self):
+        font = QFont()
+        font.setItalic(True)
+        self.textBrowser.setFont(font)
+    
+    def textUnderline(self):
+        font = QFont()
+        font.setUnderline(True)
+        self.textBrowser.setFont(font)
+
+    def alignLeft(self):
+        self.textBrowser.setAlignment(Qt.AlignLeft)
+
+    def alignCenter(self):
+        self.textBrowser.setAlignment(Qt.AlignCenter)
+
+    def alignRight(self):
+        self.textBrowser.setAlignment(Qt.AlignRight)
+
+    def alignJustify(self):
+        self.textBrowser.setAlignment(Qt.AlignJustify)
+
+    def ShowTime(self):
+        time = QTime.currentTime()
+        self.textBrowser.setText(time.toString(Qt.DefaultLocaleLongDate))
+
+    def ShowDate(self):
+        date = QDate.currentDate()
+        self.textBrowser.setText(date.toString(Qt.DefaultLocaleLongDate))

@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="items">
+    <file>iconfinder_align-center_3324978.png</file>
+    <file>iconfinder_align-justify_3324979.png</file>
+    <file>iconfinder_align-left_2561323.png</file>
+    <file>iconfinder_align-right_2561324.png</file>
+    <file>iconfinder_Color_Board_381595.png</file>
+    <file>iconfinder_document-08_1622828.png</file>
+    <file>iconfinder_document-09_1622827.png</file>
+    <file>iconfinder_ic_format_bold_48px_352381.png</file>
+    <file>iconfinder_ic_format_italic_48px_352387.png</file>
+    <file>iconfinder_text_103723.png</file>
+    <file>iconfinder_text-format_326710.png</file>
+    <file>addition.png</file>
+    <file>copy.png</file>
+    <file>cut.png</file>
+    <file>diskette.png</file>
+    <file>open-folder.png</file>
+    <file>paste.png</file>
+    <file>pdf.png</file>
+    <file>printer.png</file>
+    <file>redo.png</file>
+    <file>undo.png</file>
+  </qresource>
+</RCC>

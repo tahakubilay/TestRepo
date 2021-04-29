@@ -1,3 +1,4 @@
+#main
 import sys
 from PyQt5.QtWidgets import QApplication
 from takeditorWindow import EditorWindow #olmazsa olmaz

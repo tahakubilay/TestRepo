@@ -6,8 +6,9 @@ File Menüsü fonksiyonları verildi.
 Kısayollar ToolBar' a eklendi.
 ScrollBar eklendi.
 
--- TAK Editor Pre-Beta v0.2 -- Gelecek Güncelleme
+-- TAK Editor Pre-Beta v0.2 --
 
-Edit Menüsü fonksiyonları verilecek.
-Text Highlight Menüsü fonksiyonları verilecek.
-Açılışta pencere boyutu belirlenecek.
+Bütün Menü Fonksiyonları verildi.
+Açılışta varsayılan pencere boyutu maximum pencere boyutu olarak ayarlandı.
+
+--TAK Editor v1.0 çıktı ---
